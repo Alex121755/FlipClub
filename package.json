@@ -6,7 +6,8 @@
   "description": "A strategic local multiplayer and memory AI card matching game",
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "start": "python3 -m http.server 5173 --directory dist",
+    "start": "python3 -m http.server 5173",
+    "build": "node scripts/build.mjs",
     "balance": "node tests/balance.mjs"
   }
 }

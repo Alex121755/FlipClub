@@ -20,7 +20,26 @@
 
 macOS 双击 `启动方寸对决.command`，或运行 `python3 serve.py`。浏览器会自动打开游戏。关闭服务在终端按 Ctrl+C。
 
-游戏资源全部在 `dist/`，无外部字体、图片或接口依赖。存档位于当前浏览器，不同浏览器和设备各自独立。自由对战保存设置，闯关另外保存完整未结束战斗。
+网页入口为项目根目录的 `index.html`，脚本与样式保留在 `dist/`，无外部字体、图片或接口依赖。启动服务后访问根地址即可进入游戏。存档位于当前浏览器，不同浏览器和设备各自独立。自由对战保存设置，闯关另外保存完整未结束战斗。
+
+## 项目结构与发布
+
+```text
+flip-club/
+├── index.html             # 网页入口
+├── dist/                  # 游戏脚本与样式
+├── tests/                 # 规则、闯关与存档测试
+├── scripts/build.mjs      # 生成静态发布包
+├── package.json
+├── serve.py
+├── 启动方寸对决.command
+├── README.md
+└── BALANCE.md
+```
+
+上传到 GitHub 时，将这个文件夹里面的内容上传到仓库根目录，确保 `index.html` 与 `dist/` 同级，不要再套一层 `flip-club/`。GitHub Pages 使用 `main` 分支的根目录 `/ (root)` 发布时，会直接打开游戏入口。入口与资源使用相对路径，支持 `/FlipClub/` 这样的项目子路径。
+
+需要单独的静态发布包时，运行 `npm run build`，会从根目录入口和 `dist/` 生成 `out/index.html` 与 `out/dist/`。`out/` 为可重新生成的输出目录，不纳入 Git；Sites 的静态发布目录已同步设为 `out`，后续发布前需要先构建。本地启动与 GitHub Pages 根目录发布无需构建。
 
 ## 验证
 

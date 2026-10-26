@@ -5,7 +5,7 @@ from pathlib import Path
 import threading
 import webbrowser
 
-directory = str(Path(__file__).resolve().parent / "dist")
+directory = str(Path(__file__).resolve().parent)
 handler = partial(SimpleHTTPRequestHandler, directory=directory)
 server = None
 for port in range(5173, 5190):
