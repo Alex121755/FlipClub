@@ -1,0 +1,12 @@
+{
+  "name": "flip-club",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A strategic local multiplayer and memory AI card matching game",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "start": "python3 -m http.server 5173 --directory dist",
+    "balance": "node tests/balance.mjs"
+  }
+}
